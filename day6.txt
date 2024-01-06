@@ -1,0 +1,59 @@
+#min jumps
+class Solution:
+    def minJumps(self, arr, n):
+        #code here
+        # {1, 4, 3, 2, 6, 7}
+      
+        max_jump = 0
+        curr_jump = 0
+        
+        total = 0
+        
+        for x in range(len(arr)-1):
+            
+            curr_jump = max(curr_jump, x+ arr[x] )
+            
+            if x== max_jump:
+                total +=1
+                max_jump = curr_jump
+                
+        if max_jump >= len(arr)-1:
+            return total
+        else:
+           return -1
+===========================================
+#smallest subsequence
+class Solution:
+    def missingInteger(self, a: List[int]) -> int:
+        temp=[]
+        temp.append(a[0])
+        for i in range(1,len(a)):
+            if a[i]==a[i-1]+1:
+                temp.append(a[i])
+            else:
+                break
+        w=sum(temp)
+        while True:
+            if w in a:
+                w+=1
+            else:
+                return w
+==============================
+#xor
+class Solution:
+    def minOperations(self, nums: List[int], k: int) -> int:
+        c=0
+        p=nums[0]
+        for i in range(1,len(nums)):
+            p^=nums[i]
+        q=p^k
+        while q:
+            if(q&1):
+                c+=1
+            q>>=1
+        return c
+================================
+
+            
+        
+     
